@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.walmart.test.model.Test;
 import com.walmart.test.service.TestService;
 
 import jakarta.validation.Valid;
@@ -23,12 +24,11 @@ public class TestController {
 	private TestService testService;
 		
 	@PostMapping("searchArray/")
-    public ResponseEntity<Map<String,Integer>> searchArray(@Valid @RequestBody Map<String, String[]> arrays) {
+    public ResponseEntity<Map<String,Integer>> searchArray(@Valid @RequestBody Test test) {
 		
-		System.out.println("Hola mundo");
-		String [] array1 = arrays.get("array1");
-		String [] array2 = arrays.get("array2");
-        return ResponseEntity.ok(testService.listResponse(array1, array2));
+		System.out.println(test);	
+		
+        return ResponseEntity.ok(testService.listResponse(test.getArrary1(), test.getArrary2()));
     }
 	@GetMapping("getMundo/")
 	public ResponseEntity<String> getMundo(){

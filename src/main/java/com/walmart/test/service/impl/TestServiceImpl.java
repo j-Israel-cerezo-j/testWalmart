@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 
+import com.walmart.test.converter.Converter;
 import com.walmart.test.propities.ErrorMessageProperties;
 import com.walmart.test.service.TestService;
 
@@ -22,7 +23,6 @@ public class TestServiceImpl implements TestService {
 	
 	@Override
 	public Map<String, Integer> listResponse(String[] array1, String[] array2) {
-		
 		if (array1 == null || array1.length == 0) {
 			
 	        throw new IllegalArgumentException();
@@ -44,7 +44,7 @@ public class TestServiceImpl implements TestService {
 					}
 				}
 			}
-		}
+		}		
 		return productoMax;
 	}
 
